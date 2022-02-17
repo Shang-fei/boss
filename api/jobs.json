@@ -1,0 +1,41 @@
+[
+    {
+        "logo":"./images/company-logo.jpg",
+        "title":"[上海宝山] 中级WEB前端",
+        "salary":"7-12k",
+        "company":"上海轻松",
+        "tags":["上海","一年以内","大专"]
+    },
+
+    {
+        "logo":"./images/company-logo.jpg",
+        "title":"[上海泛微] 中级WEB前端",
+        "salary":"10-15k",
+        "company":"上海泛微",
+        "tags":["上海","一年以内","本科"]
+    },
+
+    {
+        "logo":"./images/company-logo.jpg",
+        "title":"[阿里] 中级WEB前端",
+        "salary":"15-30k",
+        "company":"阿里",
+        "tags":["上海","一年以内","研究生"]
+    },
+
+    {
+        "logo":"./images/company-logo.jpg",
+        "title":"[腾讯] 中级WEB前端",
+        "salary":"20-30k",
+        "company":"腾讯",
+        "tags":["上海","一年以内","研究生"]
+    },
+
+    {
+        "logo":"./images/company-logo.jpg",
+        "title":"[字节跳动] 中级WEB前端",
+        "salary":"20-30k",
+        "company":"字节跳动",
+        "tags":["上海","一年以内","研究生"]
+    }
+]

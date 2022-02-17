@@ -1,0 +1,537 @@
+body{
+    margin: 0%;
+    font-family: Arial, Helvetica,'Microsoft Yahei', sans-serif;
+    -webkit-font-smoothing: antialiased;/*字体平滑*/
+}
+
+/*公共样式*/
+/* flex非常重要!!!!!!!!!!!!!!!!! */
+.flex{
+    display: flex;/*弹性布局*/
+    justify-content:space-between;/*水平轴上 均匀分散*/
+    align-items: center;/*纵轴居对齐*/
+}
+
+.padded{
+    padding: 1rem;
+}
+
+.btn{
+    border: none;
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding: 0.5rem 1.2rem;
+}
+
+.grey{
+    color: #9fa3b0;
+}
+
+
+
+/*index*/
+.home-header{
+    /* no-repeat 表示不要重复出现图片 */
+    background: url('../images/home-bg.png') no-repeat;
+    background-size: 100% auto;
+    text-align: center;/*home-header里的内容居中*/
+    padding-bottom: 2rem;
+}
+
+/* > :表示选中home-header的子类 img */
+.home-header > img{
+    width: 65%;
+    margin: 2rem;/*给图片找工作找老板 加一个外边距 1rem = 默认字体大小16px*/
+}
+
+.home-header > form{
+    width: 90%;
+    margin: 0% auto;
+    background-color: aliceblue;
+    /* height: 2.2rem;  不要用height   这样form里的内容就不垂直居中了  需要用line-height */
+    line-height: 2.2rem;
+    border-radius: 2.2rem;
+}
+
+.home-header  form input{
+    width: 75%;
+    border-style: none;/*input无边框*/
+    outline: none;/*点击input不显示黑边框*/
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.home-header > form >button{
+    font-size: 0.9rem;
+    color: rgba(4, 107, 30, 0.466);
+    /* 去按钮的边框和背景 */
+    border: none;
+    background:none;
+}
+
+.home-categories{
+    padding: 0 1rem;
+}
+
+/* 要实现图片和技术的水平排列 用flex弹性布局  flex布局中要对"父类"进行操作 父类称为flex容器  子类自动成为容器成员!!!!!!!!*/
+.home-categories dt{
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-weight: bolder;
+}
+
+.home-categories dt img{
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.home-categories dd{
+    margin: 0rem -0.4rem;/*技巧 因为.tag设置了0.4rem的左右外边距  所以在dd这设置-0.4rem外边距抵消 这样.tag的内容就可以与dt的图片对齐*/
+}
+
+.tag{
+    background: #f5f8f9;
+    color: rgb(53, 50, 50);
+    padding: 0.5rem 1rem;
+    display: inline-block;/*设置成行内块元素 !!!!!!!!!!!!!!*/
+    border-radius: 2rem;
+    text-decoration: none;
+    margin: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+}
+
+.home-footer{
+    width: 70%;
+    margin: 0 auto;
+    font-size: 0.7rem;
+    color: rgb(53, 50, 50);
+}
+
+.home-footer p{
+    margin: 0.2rem 0;
+}
+
+
+
+
+
+/* list.html css */
+.list-header{
+    padding: 0.8rem 1rem;
+}
+
+.list-header img{
+    height: 1.5rem;
+}
+
+.list-header form{
+    width: 100%;
+}
+
+.list-header form .inner{
+    width: 100%;
+    background: #f5f8f9;
+    margin: 0 1rem;
+    line-height: 1.7rem;
+    border-radius: 2rem;
+    padding: 0 1rem;
+}
+
+.list-header form .inner input{
+    width: 80%;
+    background:transparent;/*实现input 透明*/
+    border: none;
+    outline: none;
+    color: gray;
+}
+
+.list-header form button{
+    border: none;
+    background: none;
+    font-size: 0.9rem;
+    color: #5bd4c7;
+    flex-shrink: 0;/*flex-shrink为压缩属性   0表示按钮上面的文字不能被压缩!!!!*/
+    padding: 0;
+}
+
+.filter{
+    padding: 0.5rem 1rem;
+    border: 1px solid #e5ebeb;
+}
+
+.filter dl, .filter dd{
+    margin: 0;
+}
+
+.filter dt{
+    font-size: 0.8rem;
+}
+
+.filter .active dt{
+    color: black;
+}
+
+/* !!!!!!!css实现小三角倒转180度  ::after是伪元素*/
+.filter dt::after{
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border: 1px solid #999;/*以上是我们先写一个空的正方形出来*/
+    margin-left: 0.5rem;
+    border-style: solid none none solid;/*!!!!!正方形变成小三角*/
+    transform: rotate(225deg);/*旋转225度得到朝下的三角形 
+    在激活时要想实现小三角旋转180度 那么可以在激活时将225deg改成45deg 如下所示*/
+    transform-origin: 2px 1px;/*防止旋转偏移*/
+    transition: all 0.3s;/*实现动画效果  过渡!!!!*/
+}
+
+.filter .active dt::after{
+    transform: rotate(45deg);/*激活的时候旋转45度*/
+}
+
+.filter dd {
+    display: none;/*dd内容都隐藏*/
+}
+
+.filter .active dd{
+    display: block;/*只有active里面的dd不隐藏 */
+    background: rgb(0,0,0,0.3);/*透明背景*/
+    width: 100%;
+    height: 100vh;
+    position: absolute;/*绝对定位  因为*/
+    top: 90px;/*header和filter共占了88px 所以这里是90px*/
+    left: 0;
+}
+
+.filter .active dd ul{
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+
+.filter .active dd li{
+    line-height: 3.5rem;
+    text-indent: 1rem;/*字体缩进1rem*/
+    color: #aaa;
+}
+
+.filter .active dd li.active{
+    background: #f5f8f9;
+    color: black;
+}
+
+.job-list{
+    margin: 0%;
+    padding: 0%;
+}
+
+.job-item {
+    margin: 1rem;
+    padding-bottom: 1rem;
+    color: #7e8793;
+    text-decoration: none;
+    border-bottom: 1px solid #e5ebeb;
+}
+
+.job-item img{
+    height: 3.5rem;
+    border-radius: 0.3rem;
+}
+
+.job-item .text{
+    width: 100%; 
+    margin-left: 1rem;
+}
+
+.job-item .title{
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.job-item .salary{
+    font-size: 1.2rem;
+    color: orangered;
+}
+
+.job-item .company{
+    color: #333;
+    font-size: 0.8rem;
+    margin: 0.2rem 0;
+}
+
+.job-item .props{
+    font-size: 0.8rem;
+}
+
+.job-item .props span{
+    margin-right: 0.5rem ;
+}
+
+
+/* detail */
+.top-bar img{
+    height: 1rem;
+}
+
+.top-bar form{
+    width: 40%;
+    border: 1px solid #5bd4c7;
+    border-radius: 2rem;
+    padding: 0 0;
+}
+
+.top-bar form input{
+    border: none;
+    width: 80%;
+    background:none;
+    line-height: 1.5rem;
+    color: #aaa;
+    font-size: 0.9rem;
+    outline: none;
+    padding-left: 1rem;
+}
+
+.top-bar form button{
+    border: none;
+    background: url("../images/ss.png") no-repeat top center;
+    background-size: 100% auto;
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    position:absolute;
+    right: 22px;
+    top: 22px;
+}
+
+.job-info{
+    background: #62d5c8;
+    color: white;
+}
+
+.job-info .title{
+    font-size: 1.2rem;
+}
+
+.job-info .props{
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+}
+
+.job-info .props .items i{
+    display: inline-block;
+    width: 1px;
+    height: 0.8rem;
+    background-color: white;
+    margin: 0 0.5rem;
+}
+
+.job-info .tags span{
+    border: 1px solid white;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    padding: 0 0.5rem;
+}
+
+.user-info{
+    background-color: #eefbf9;
+}
+
+.user-info img{
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 100%;
+}
+
+.user-info button{
+    background-color: #62d5c8;
+    color: white;
+    flex-shrink: 0;
+}
+
+.user-info .name{
+    color: #333;
+    font-size: 1.3rem;
+    padding: 0.8rem;
+}
+
+.user-info .name .like{
+    font-size: 0.8rem;
+    color: #fb7042;
+}
+
+.user-info .name .like img{
+    height: 1rem;
+    width: 1rem;
+    padding-right: 0.5rem;
+}
+
+.user-info .desc{
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.user-info .info{
+    width: 50%;
+    margin: 0 1rem;
+}
+
+.job-detail h3{
+    color: #333;
+    font-size: 1rem;
+    position: relative;/*让下面的after相对于本层来定位*/
+}
+
+/* 新增一个伪类  实现职位描述下的小横线功能 */
+.job-detail h3:after{
+    content: '';
+    width:1rem;
+    height: 1px;
+    display: inline-block;
+    background-color: #62d5c8;
+    position: absolute;
+    top:1.8rem;
+    left: 0;
+}
+
+.job-detail .text{
+    font-size: 0.95rem;
+    line-height: 1.6rem;
+}
+
+.job-detail .tags{
+    padding-top: 0.7rem;
+}
+
+.job-detail .tags span{
+    font-size: 0.8rem;
+    color: #5bd4c7;
+    border: 1px solid #5bd4c7;
+    padding: 0 0.5rem;
+    border-radius: 2rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;/*当有多个元素需要换行时  为了每个元素完整显示 我们需要加上这个*/
+}
+
+.job-detail .text table{
+    border: 1px solid #ebecef;
+    padding: 0.7rem 0.3rem;
+    font-size: 0.75rem;
+}
+
+.job-detail .text th{
+    font-weight: normal;
+    width: 6rem;
+    color: #9fa3b0;
+}
+
+.job-detail .text td{
+    width: 8rem;
+}
+
+.company-info{
+    background-color: #eefbf9;
+}
+
+.company-info img{
+    height: 3.5rem;
+    border-radius: 100%;
+}
+
+.company-info .info{
+    width: 100%;
+    margin-left: 1rem;
+
+}
+
+.company-info .info .name{
+    color: #333;
+}
+
+.company-info .info .name .btn{
+    background: #62d5c8;
+    color: white;
+}
+
+.company-info .info .desc{
+    font-size: 0.8rem;
+    color: #333;
+}
+
+.company-info .info .tags{
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    justify-content: flex-start;/*向左对齐*/
+}
+
+.company-info .info .tags i{
+    display: inline-block;
+    width: 1px;
+    height: 0.8rem;
+    background-color: #ebecef;
+    margin: 0 0.5rem;
+}
+
+.related-jobs h3{
+    font-weight: normal;
+    font-size: 0.9rem;
+    color: #7e8793;
+}
+
+.related-jobs ul{
+    list-style: none;
+}
+
+.related-jobs ul li > a{
+    border: none;
+    border-top: 1px solid #ebecef;
+    margin: 0;
+    padding: 1rem 0;
+}
+
+.related-jobs .btn{
+    margin: 0.2rem;
+    padding: 0.4rem 1.2rem;
+    border: 1px solid #62d5c8;
+    color: #62d5c8;
+    background: none;
+}
+
+.related-companies h3{
+    font-weight: normal;
+    font-size: 0.9rem;
+    color: #7e8793;
+}
+
+.related-companies .tags a{
+    color: #7e8793;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin: 0 0.8rem 0.2rem 0;
+}
+
+.job-footer{
+    margin: 1rem;
+    border-top: 1px solid #ebecef;
+    padding: 1rem 0;
+    line-height: 1.5rem;
+}
+
+.breadcrumb-nav a{
+    color: #7e8793;
+    text-decoration: none;
+    font-size: 0.75rem;
+}
+
+.breadcrumb-nav i{ /*小三角形*/
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #9fa3b0;
+    border-style: solid none none solid;
+    transform: rotate(135deg);
+}
+
+

@@ -1,0 +1,71 @@
+{
+        "title":"高级Web前端",
+        "salary":"8k-15k",
+        "tags":["上海","1-3年","不限"],
+        "date":"2022-02-17T09:05:58.742Z",
+        "labels":["vue.js","Node.js","react"],
+        "user":{
+            "id":"1",
+            "avatar":"./images/tx.jpg",
+            "name":"欧阳平",
+            "title":"上海宝山·软件工程师"
+        },
+        "body":"不招应届生<br>提供住宿，工作稳定，不加班<br>1、精通html<br>2、精通java<br>3、精通js<br>4、会查阅资料<br>5、为人和善<br>6、积极进取<br>",
+        
+        "team":["公司氛围好","不打卡","领导nice"],
+
+        "company":{
+            "name":"贾氏集团",
+            "full_name":"上海加时（集团）有限公司",
+            "tags":["工程施工","不要需要融资","100-499人"],
+            "logo":"./images/company-logo.jpg",
+            "body":"大肆夸奖放假啊肯德基ask大家对方接口卡科技开发扣税的接口风控数据的的健康佛山大家看法恐龙时代就发给老师的对方架空历史打击开发商的金佛开始了的",
+            "props":{
+                "法人代表":"赵子豪",
+                "注册资本":"2000万人民币",
+                "成立时间":"2017-09-13",
+                "经营状态":"存续（在营，开业，在册）"
+            }
+        },
+
+        "jobs":[
+            {
+                "logo":"./images/company-logo.jpg",
+                "title":"[上海宝山] 中级WEB前端",
+                "salary":"7-12k",
+                "company":"上海轻松"
+                },
+
+            {
+                "logo":"./images/company-logo.jpg",
+                "title":"[阿里] 中级WEB前端",
+                "salary":"15-30k",
+                "company":"阿里",
+                "tags":["上海","一年以内","研究生"]
+                },
+
+            {
+                "logo":"./images/company-logo.jpg",
+                "title":"[腾讯] 中级WEB前端",
+                "salary":"20-30k",
+                "company":"腾讯",
+                "tags":["上海","一年以内","研究生"]
+                }
+
+        ],
+
+        "companies":[
+            { "name":"字节跳动","id":"1" },
+            { "name":"华为","id":"2" },
+            { "name":"小米","id":"3" },
+            { "name":"阿里","id":"4" }     
+        ],
+
+         "path":[
+             {"title":"首页","url":"/"},
+             {"title":"上海招聘·Web前端招聘","url":"/"},
+             {"title":"上海Web前端招聘","url":"/"},
+             {"title":"宝山集团","url":"/"},
+             {"title":"Web前端招聘","url":"/"}
+         ]       
+}

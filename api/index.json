@@ -1,0 +1,19 @@
+[
+    {
+        "icon":"./images/technology.png",
+        "name":"技术",
+        "tags":["Java","PHP","NodeJS"]
+    },
+
+    {
+        "icon":"./images/technology.png",
+        "name":"职位",
+        "tags":["Java","PHP","NodeJS"]
+    },
+
+    {
+        "icon":"./images/technology.png",
+        "name":"部门",
+        "tags":["Java","PHP","NodeJS"]
+    }
+]

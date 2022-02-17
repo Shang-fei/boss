@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOSS直聘-互联网招聘神器!</title>
+    <link rel="stylesheet" href="style/main.css">
+    <!-- 让网页打开时在标题旁显示一个图标!!!!!!!!! -->
+    <link rel="shortcut icon" type ="image/x-icon" href="./images/favicon.png">
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="home-header">
+            <img src="./images/home-search-text.png" alt="">
+            <form action="">
+                <input type="text" placeholder="搜索职位/公司">
+                <button>搜索</button>
+            </form>
+        </div>
+        <div class="home-categories">
+            <dl v-for="item in categories">
+                <dt>
+                    <img :src="item.icon" alt="">
+                    <div>{{item.name}}</div>
+                </dt>
+                <dd>
+                    <a href="./list.html" class="tag" v-for="tag in item.tags">{{tag}}</a>
+                    
+                </dd>
+            </dl>
+        </div>
+        <div class="home-footer">
+            <p>违法和不良信息举报邮箱：jubao@kanzhun.com</p>
+            <p>企业服务热线和举报投诉：400 065 5799</p>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                categories:[]
+            },
+            created:function(){
+                //axios异步请求数据
+                const that = this;
+                //fetch捕捉接口  注意有两个.then
+                fetch('http://127.0.0.1:5500/api/index.json')
+                .then(function(res){
+                    return res.json()
+                }).then(function(data){
+                    console.log(data),
+                    //第一种写法：将请求来的数据赋值给vm对象的categories属性
+                    //vm.categories = data
+                    //第二种写法：在最外层方法定义一个that=this指向对象本身
+                    that.categories = data
+                })
+            }
+        })
+    </script>
+</body>
+</html>
